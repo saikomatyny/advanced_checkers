@@ -14,9 +14,9 @@ class BoardExceptions:
         pass
 
 class MoveExceptions:
-    class InvalidMove(Exception):
+    class OutOfBoundaries(Exception):
         def __init__(self, move):
-            super().__init__(f"{move} is invalid move")
+            super().__init__(f"{move} is move out of boundaries")
 
     class InvalidMoveValue(Exception):
         def __init__(self, move):
