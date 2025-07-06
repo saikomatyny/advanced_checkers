@@ -35,14 +35,13 @@ def main_loop():
     board.place_checkers(checkers_count_1, checkers_count_2)
 
     current_side = player1
-    while game_continues(board, player1, player2):
+    while not game_is_over(board, player1, player2):
         print(board)
         x = int(input(f"{current_side.player.name}, enter checker X coordinate: "))
         y = int(input(f"{current_side.player.name}, enter checker Y coordinate: "))
         move = input("Enter move (DR, DL, UR, UL): ")
 
         try:
-
             if can_capture_from(board, x, y, move):
                 do_capture(board, x, y, move)
 
@@ -82,7 +81,7 @@ def main_loop():
 
 
 
-def game_continues(board : Board, white_side : Side, black_side : Side) -> bool:
+def game_is_over(board : Board, white_side : Side, black_side : Side) -> bool:
 
     base_cases_of_ending_game(white_side, black_side)
 

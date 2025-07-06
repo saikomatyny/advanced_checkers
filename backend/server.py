@@ -79,7 +79,7 @@ async def game_setup():
     return board, side1, side2
 
 async def main_game_loop(board, user1, user2):
-    while game_continues(board, players[0], players[1]):
+    while not game_is_over(board, players[0], players[1]):
         await user1.send(f"\n{str(board)}")
         await user2.send(f"\n{str(board)}")
 
