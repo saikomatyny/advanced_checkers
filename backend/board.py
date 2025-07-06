@@ -61,7 +61,7 @@ class Player:
     def __init__(self, name, side):
         self.name = name
         self.is_won = False
-        self.side : str
+        self.side = side
 
     def __str__(self):
         return f"player: {self.name}\nis_won: {self.is_won}\nside: {self.side}"
@@ -71,5 +71,8 @@ class Player:
 
 class Side:
     def __init__(self, time, name, side):
-        self.timer = Timer(time)
+        self.timer = Timer(time * 10)
         self.player = Player(name, side)
+
+    def __str__(self):
+        return f"player: {self.player.name}\nis_won: {self.player.is_won}\nside: {self.player.side}\ntime: {self.timer.time}"
